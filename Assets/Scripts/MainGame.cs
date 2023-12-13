@@ -12,26 +12,28 @@ public class MainGame : MonoBehaviour
     private List<MonsterInfos> CurrentMonstersList;
     public List<Upgrade> Upgrades = new List<Upgrade>();
     public List<Upgrade> _unlockedUpgrades = new List<Upgrade>();
-    int _currentMonster;
+    public float TimeDuration = 20;
+    public float Timer;
     public MonsterUI My_MonsterUI;
     public GameObject PrefabHitPoint;
     public GameObject PrefabUpgradeUI;
     public GameObject ParentUpgrades;
+    int _currentMonster;
+    public int stageMax;
+    public int kills;
+    public int killsMaxToNextStage;
 
-
-    public float TimeDuration = 20;
-    public float Timer;
     private bool IsTimerActive = false;
     public TMP_Text timerText;
     public float _timerAutoDamage;
     public int currentStageID;
     public TMP_Text textStage;
-    public int stageMax;
+    public TMP_Text textcoins;
     public Button _retour;
     public Button _avance;
     public TMP_Text killsText;
-    public int kills;
-    public int killsMaxToNextStage;
+    public int coins;
+    
     #endregion
     #region Singleton
     private static MainGame instance;
@@ -48,9 +50,11 @@ public class MainGame : MonoBehaviour
 
     void Start()
     {
+        
         currentStageID = 0;
         stageMax = currentStageID;
         CurrentMonstersList = MonsterInfosPerStages[currentStageID].InfosList;
+        My_MonsterUI.Coins = coins;
 
         //int LifeMonster = Monster._lifeMax;
         killsMaxToNextStage = CurrentMonstersList.Count;
@@ -129,7 +133,7 @@ public class MainGame : MonoBehaviour
             _timerAutoDamage = 0;
             foreach (var upgrade in _unlockedUpgrades)
             {
-                My_MonsterUI.Hit(/*upgrade.DPS*/1);
+                My_MonsterUI.Hit(upgrade.DPS);
 
                 GameObject go = GameObject.Instantiate(PrefabHitPoint, My_MonsterUI.Canvas.transform, false);
                 go.transform.localPosition = new Vector3(0, 0, 0);
@@ -155,7 +159,7 @@ public class MainGame : MonoBehaviour
         if (currentStageID > 0)
         {
 
-            CurrentMonstersList = MonsterInfosPerStages[currentStageID - 1].InfosList;
+            CurrentMonstersList = MonsterInfosPerStages[currentStageID].InfosList;
             currentStageID -= 1;
 
         }
@@ -181,7 +185,7 @@ public class MainGame : MonoBehaviour
     private void NextMonster()
     {
 
-
+        EarnCoins();
         _currentMonster = (_currentMonster + 1) % CurrentMonstersList.Count;
         My_MonsterUI.SetMonster(CurrentMonstersList[_currentMonster]);
         if (currentStageID == stageMax)
@@ -250,6 +254,15 @@ public class MainGame : MonoBehaviour
     private void ResetTimer()
     {
         Timer = TimeDuration;
+    }
+
+    public void EarnCoins()
+    {
+        textcoins.text = "" + My_MonsterUI.Coins;
+        if(My_MonsterUI.Life <= 0)
+        {
+            //coins += currentMonstersList.coins ;
+        }
     }
 
 

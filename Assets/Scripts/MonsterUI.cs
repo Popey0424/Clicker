@@ -10,7 +10,7 @@ public class MonsterUI : MonoBehaviour
 {
     public int Life;
     public TextMeshProUGUI TextLife;
-    [SerializeField] private int _lifeMax;
+    public int _lifeMax;
     public Image ImageLifeFilll;
     private SpriteRenderer _spriteRenderer;
     public int Coins = 0;
@@ -46,7 +46,7 @@ public class MonsterUI : MonoBehaviour
     {
         _lifeMax = infos.Life;
         Life = _lifeMax;
-        Coins = _lifeMax;
+        Coins = infos.coins;
 
         enemyname.text = infos.enemyname.ToString();
         UpdateLife();

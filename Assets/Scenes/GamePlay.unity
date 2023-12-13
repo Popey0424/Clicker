@@ -532,8 +532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.99994, y: 430}
-  m_SizeDelta: {x: -1230.3, y: -943.88}
+  m_AnchoredPosition: {x: -353.82, y: 430}
+  m_SizeDelta: {x: -1253.93, y: -943.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358147430
 MonoBehaviour:
@@ -3104,28 +3104,28 @@ MonoBehaviour:
     - enemyname: 'siabcxui '
       Life: 14
       sprite: {fileID: 21300000, guid: c5ab34b1e1c00c743a50ebc1deef16c6, type: 3}
-      coins: 10
+      coins: 0
     - enemyname: bdfsdfc
       Life: 1
       sprite: {fileID: 21300000, guid: e8840225d0a875c48afa7aa87778e3d0, type: 3}
-      coins: 2
+      coins: 0
     - enemyname: scv
       Life: 5
       sprite: {fileID: 21300000, guid: affd7e74f3f7b465ea861fbf1651b73b, type: 3}
-      coins: 6
+      coins: 0
   - InfosList:
     - enemyname: dcvqs
       Life: 14
       sprite: {fileID: 21300000, guid: a9354548f1d8e4015830a88081482039, type: 3}
-      coins: 10
+      coins: 0
     - enemyname: vszcdvzsdfg
       Life: 1
       sprite: {fileID: 21300000, guid: 4f5364a9fe7e04741862d2af49136835, type: 3}
-      coins: 2
+      coins: 0
     - enemyname: scv
       Life: 5
       sprite: {fileID: 21300000, guid: affd7e74f3f7b465ea861fbf1651b73b, type: 3}
-      coins: 6
+      coins: 0
   Upgrades:
   - Name: Barigadam
     Description: dzqdqdqzdqzd
@@ -3138,22 +3138,24 @@ MonoBehaviour:
     Sprite: {fileID: 0}
     Cost: 0
     DPS: 0
-  My_MonsterUI: {fileID: 0}
+  TimeDuration: 20
+  Timer: 0
+  My_MonsterUI: {fileID: 1559616872}
   PrefabHitPoint: {fileID: 1191058868462872646, guid: 282d01981c9a39141be2bdb613742c76, type: 3}
   PrefabUpgradeUI: {fileID: 4804979658629807577, guid: 51001629f9d048b4492a55a9f0f63b51, type: 3}
   ParentUpgrades: {fileID: 1303204515}
-  TimeDuration: 20
-  Timer: 0
+  stageMax: 0
+  kills: 0
+  killsMaxToNextStage: 0
   timerText: {fileID: 1622332808}
   _timerAutoDamage: 0
   currentStageID: 0
   textStage: {fileID: 1618779546}
-  stageMax: 0
+  textcoins: {fileID: 2067510657}
   _retour: {fileID: 1621738883}
   _avance: {fileID: 818893623}
   killsText: {fileID: 679779646}
-  kills: 0
-  killsMaxToNextStage: 0
+  coins: 0
 --- !u!4 &1649282588
 Transform:
   m_ObjectHideFlags: 0
@@ -3404,8 +3406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.99994, y: 430}
-  m_SizeDelta: {x: -1230.3, y: -943.88}
+  m_AnchoredPosition: {x: -353.82, y: 430}
+  m_SizeDelta: {x: -1253.9, y: -943.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1804578486
 MonoBehaviour:
